@@ -1,0 +1,11 @@
+<div class="fingerSize-wrapper">
+    <div class="fingerSize-row">
+        <span class="fingerSize-label">Ring size</span>
+        <span class="fingerSize-data">{{ product.fingerSize }}</span>
+    </div>
+    <div class="fingerSize-control-row" id="fingerSize-choice" data-publicref="{{ product.publicRef | json_encode }}">
+        {# REACT #}
+        <button class="fingerSize-control">Size request</button>
+    </div>
+    <a href="/docs/baguier.pdf" target="_blank" class="fingerSize-control no-react">Size guide</a>
+</div>

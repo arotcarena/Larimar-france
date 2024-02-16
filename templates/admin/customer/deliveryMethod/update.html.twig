@@ -1,0 +1,39 @@
+{% extends "admin/admin_base.html.twig" %}
+
+{% block body %}
+
+    <div class="breadcrumb">
+        <a href={{ path('admin_home') }} class="breadcrumb-home-link">Administration</a>
+        >
+        <a href={{ path('admin_deliveryMethod_index') }} class="breadcrumb-link">Méthodes de livraison</a>
+        >
+        <span class="breadcrumb-item">{{ deliveryMethod.name }}</span>
+        >
+        <span class="breadcrumb-item">Modifier</span>
+    </div>
+
+    <h1>Modifier "{{ deliveryMethod.name }}"</h1>
+
+    {{ form_start(form) }}
+        <div class="admin-form">
+            {% if not form.vars.valid %}
+                <div class="admin-main-error">Le formulaire comporte des erreurs</div>
+            {% endif %}
+
+            {{ include('admin/parts/_show_row.html.twig', {value: deliveryMethod.name, label: 'Nom', name: 'name'}) }}
+            {{ include('admin/parts/_show_row.html.twig', {value: deliveryMethod.maxWeight, label: 'Poids jusqu\'à', name: 'maxWeight'}) }}
+            {{ include('admin/parts/_show_row.html.twig', {value: deliveryMethod.destinationAreaLabel, label: 'Zone destination', name: 'destinationArea'}) }}
+
+            {{ include('admin/form/_admin_form_row.html.twig', {name: 'deliveryTime', label: 'Délai de livraison (jours ouvrés)', field: form.deliveryTime}) }}
+            {{ include('admin/form/_admin_form_row.html.twig', {name: 'price', label: 'Prix (€)*', field: form.price}) }}
+
+            
+            {{ include('admin/parts/_show_row.html.twig', {value: deliveryMethod.updatedAt.format('d/m/Y H:i'), label: 'Dernière mise à jour', name: 'updatedAt'}) }}
+
+            <div class="admin-form-submit">
+                <button type="submit" class="admin-button">Modifier</button>
+            </div>
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "fr/base.html.twig" %}
+
+{% block title %}Passer commande{% endblock %}
+
+{% block javascript %}
+    {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('checkout') }}
+
+    <!-- MONDIAL RELAY -->
+    <!--On charge Jquery depuis le CDN de google-->  
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>  
+    <!-- Charger Leaflet pour l'affichage de la map-->  
+    <script type="text/javascript" src="//unpkg.com/leaflet/dist/leaflet.js"></script>  
+    <link rel="stylesheet" type="text/css" href="//unpkg.com/leaflet/dist/leaflet.css" />  
+    <!--On charge le widget mondial relay depuis leurs serveurs-->  
+    <script type="text/javascript" src="https://widget.mondialrelay.com/parcelshop-picker/jquery.plugin.mondialrelay.parcelshoppicker.min.js"></script>  
+{% endblock %}
+
+{% block style %}
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('checkout') }}
+{% endblock %}
+
+{% block header %}
+    {% include "fr/customer/purchase/_checkout_header.html.twig" %}
+{% endblock %}
+
+
+{% block body %}
+    <div id="checkout">
+        <h1>Passer Commande</h1>
+    </div>
+{% endblock %}

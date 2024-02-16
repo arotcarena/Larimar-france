@@ -1,0 +1,152 @@
+.account-purchase {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.purchase-count {
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+.purchase-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: opacity .3s;
+}
+.purchase-list.loading {
+    opacity: .3;
+    position: relative;
+}
+.purchase-list .main-loader {
+    position: absolute;
+    width: 2.4em;
+    height: 2.4em;
+    left: calc(50% - 1.2em);
+    top: calc(50% - 1.2em);
+}
+.purchase-item {
+    padding: 10px 15px;
+    padding-bottom: 20px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 0 1px var(--color-lightgrey);
+    position: relative;
+    cursor: pointer;
+}
+.purchase-item .expand-button {
+    position: absolute;
+    left: calc(50% - 1em);
+    bottom: 0;
+}
+.purchase-item .i-expand-more {
+    color: var(--color-grey);
+    width: 2em;
+    height: 2em;
+    transition: transform .3s;
+}
+.purchase-item .i-expand-more.expanded {
+    transform: rotate(180deg);
+}
+
+.purchase-light {
+    position: relative;
+}
+.purchase-item-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px  0;
+}
+.purchase-light-item {
+    flex: none;
+}
+.purchase-item-row .purchase-light-item:first-child {
+    max-width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.purchase-item-footer {
+    color: var(--color-grey);
+    font-size: .9em;
+    text-transform: uppercase;
+}
+.purchase-item-body {
+    margin: 10px 0;
+}
+
+
+.purchase-separator {
+    height: 1px;
+    background-color: rgb(225, 225, 225);
+    margin: 25px 0;
+}
+
+
+.purchase-full-item {
+    font-size: .9em;
+}
+.purchase-full-item p {
+    margin: 0;
+}
+.purchase-full-item-title {
+    margin: 4px 0;
+    color: var(--color-grey);
+    font-size: .9em;
+}
+
+.purchase-full-item-table {
+    font-size: .9em;
+    width: 100%;
+    margin: 15px 0;
+    border-collapse: collapse;
+}
+.purchase-full-item-table td, .purchase-full-item-table th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px 0;
+}
+.purchase-full-item-table td {
+    padding: 15px 0;
+}
+.purchase-full-item-table th {
+    white-space: nowrap;
+    flex: none;
+    font-weight: 400;
+    font-size: .8em;
+}
+.purchase-full-item-table th:first-child {
+    width: 100px;
+}
+.purchase-full-item-table thead tr {
+    background-color: rgb(240, 240, 240);
+}
+
+
+.purchase-full-item-total {
+    font-size: .9em;
+    margin: 15px 0;
+    padding: 10px 15px;
+    border: solid 1px rgb(225, 225, 225);
+}
+.purchase-full-item-total-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+.purchase-full-item-total-line.main {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+.purchase-full-item-total-separator {
+    height: 1px;
+    background-color: rgb(225, 225, 225);
+    margin: 10px 0;
+}
+
+
+
+@media only screen and (min-width: 750px) {
+    .purchase-full-item {
+        font-size: 1em;
+    }
+}

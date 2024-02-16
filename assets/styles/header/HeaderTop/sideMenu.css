@@ -1,0 +1,150 @@
+.side-menu-container {
+    animation: fadeIn .2s forwards;
+}
+.side-menu-container.close {
+    animation: fadeOut .2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+@keyframes fadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+.side-menu {
+    height: 100%;
+    background-color: white;
+    animation: slideOpen ease-in-out .2s forwards;
+    position: relative;
+}
+.side-menu.right {
+    margin-left: auto;
+}
+.side-menu-container.close .side-menu {
+    animation: slideClose ease-in-out .2s forwards;
+}
+
+
+@keyframes slideOpen {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+@keyframes slideClose {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0;
+    }
+}
+
+
+.side-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+}
+
+.side-menu.right .modal-closer {
+    position: absolute;
+    right: auto;
+    left: 15px;
+}
+
+.side-menu-nav {
+    margin: 100px 0 50px;
+}
+.side-menu-link {
+    display: block;
+    width: 100%;
+    font-size: 1.4em;
+    padding: 15px 20px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color .3s;
+}
+.side-menu-link.selected, .side-menu-link:hover {
+    color: var(--color-larimar);
+}
+.side-menu-link .i-expand-more {
+    transition: transform .3s;
+    width: 1.4em;
+    height: 1.4em;
+}
+.side-menu-link.selected .i-expand-more {
+    transform: rotate(180deg);
+}
+.side-menu-sublink {
+    display: block;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    transition: color .3s;
+}
+.side-menu-sublink:hover {
+    color: var(--color-larimar);
+}
+
+.side-menu-body {
+    margin-top: 80px;
+}
+
+.mobile-menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.mobile-menu-body {
+    flex: 1 0;
+}
+.mobile-menu-footer {
+    flex: none;
+    margin-top: auto;
+    background-color: var(--color-bg-dark);
+    color: #FFF;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+.mobile-menu-footer-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.mobile-menu-footer .social-icon {
+    width: 25px;
+    height: 25px;
+}
+.mobile-menu-footer .lang-choices {
+    justify-content: flex-start;
+}
+
+@media screen and (min-width: 600px)
+{
+    .side-menu {
+        max-width: 460px;
+    }
+}
+
+
+

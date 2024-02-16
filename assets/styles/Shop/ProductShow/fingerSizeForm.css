@@ -1,0 +1,62 @@
+.fingerSize-form-modal-container {
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fingerSizefadeOut .3s forwards;
+}
+.fingerSize-form-modal {
+    background-color: #FFF;
+    position: relative;
+    animation: fingerSizemodalAppears .1s backwards;
+    max-width: calc(100vw - 30px);
+    width: 400px;
+    height: auto;
+    padding: 30px 15px;
+}
+.fingerSize-form-modal-container.close {
+    animation: fingerSizefadeIn .3s forwards;
+}
+.fingerSize-form-modal-container.close .fingerSize-form-modal {
+    animation: fingerSizemodalDisappears .1s forwards;
+}
+.fingerSize-title {
+    padding: 0 30px;
+    margin: 0;
+}
+.fingerSize-form {
+    padding: 0 15px;
+}
+
+@keyframes fingerSizefadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0.7);
+    } to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+@keyframes fingerSizefadeOut {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    } to {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+@keyframes fingerSizemodalAppears {
+    from {
+        width: 0;
+        height: 0;
+    } to {
+        width: 400px;
+        height: 340px;
+    }
+}
+@keyframes fingerSizemodalDisappears {
+    from {
+        width: 400px;
+        height: 340px;
+    } to {
+        width: 0;
+        height: 0;
+    }
+}

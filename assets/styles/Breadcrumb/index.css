@@ -1,0 +1,27 @@
+.breadcrumb {
+    max-width: 1500px;
+    margin: 10px auto;
+    padding: 10px 5px;
+    font-size: .8em;
+    line-height: 1.5;
+    letter-spacing: .9;
+}
+.breadcrumb-link, .breadcrumb-home-link {
+    font-weight: 600;
+}
+.breadcrumb-home-link:hover, .breadcrumb-link:hover {
+    text-decoration: underline;
+}   
+.breadcrumb-home-link {
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+@media only screen and (min-width: 1000px) {
+    .breadcrumb {
+        padding: 10px 50px;
+        font-size: 1em;
+        margin-top: -10px;
+        margin-bottom: 30px;
+    }
+}

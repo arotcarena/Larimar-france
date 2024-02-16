@@ -1,0 +1,15 @@
+{% extends "en/email/base.html.twig" %}
+
+{% block title %}Email address change{% endblock %}
+
+{% block body %}
+    <div style="padding: 10px 15px;">
+        <img src="http://localhost:8000/img/logo.png" style="width: 140px; height: 140px;" alt="Larimar logo">
+         
+        <h1 style="font-size: 1.4em;">Email address change</h1>
+
+        <p style="margin: 40px 0;">To confirm your email address change, please enter this code :</p>
+
+        <p style="color: #009095; font-weight: 600; font-size: 1.6em; letter-spacing: .1em;">{{ code }}</p>
+    </div>
+{% endblock %}

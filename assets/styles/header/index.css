@@ -1,0 +1,176 @@
+.header-logo-desktop-wrapper, .menu-separator, .header.scroll .menu-separator {
+    display: none;
+}
+
+.header {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    z-index: 2;
+}
+.header-wrapper {
+    height: 100%;
+}
+.header.scroll, .header.scroll-up {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
+}
+.header.scroll {
+    animation: verticalOpen .3s forwards;
+}
+.header.scroll.from-up {
+    animation: none;
+}
+.header.homepage-header, .header.homepage-header .header-top .button {
+    color: #FFF;
+}
+.header.homepage-header .menu-separator{
+    background-color: #FFF;
+}
+.header.homepage-header.scroll, .header.homepage-header.scroll-up {
+    background-color: var(--color-bg-dark);
+}
+
+@keyframes verticalOpen {
+    from {
+        transform: translateY(-120%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.header.homepage-header.fade {
+    animation: homepageHeaderFade .1s forwards;
+}
+@keyframes homepageHeaderFade {
+    from {
+        background-color: var(--color-bg-dark);
+    } to {
+        background-color: transparent;
+    }
+}
+.header.fade {
+    animation: headerFade .1s forwards;
+}
+@keyframes headerFade {
+    from {
+        background-color: #FFF;
+    } to {
+        background-color: transparent;
+    }
+}
+
+.header-search-link .i-search {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+
+
+@media only screen and (min-width: 1000px) {
+    .header.scroll.from-up {
+        animation: verticalReverseOpen .3s forwards;
+    }
+    @keyframes verticalReverseOpen {
+        from {
+            height: 135px;
+        }
+        to {
+            height: 70px;
+        }
+    }
+    .header.scroll {
+        height: 70px;
+    }
+    .header.scroll-up {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #FFF;
+        animation: bigVerticalOpen .3s forwards;
+    }
+    @keyframes bigVerticalOpen {
+        from {
+            height: 70px;
+        }
+        to {
+            height: 135px;
+        }
+    }
+    .header-logo-desktop-wrapper {
+        display: block;
+        flex: none;
+    }
+    .header.scroll .header-logo-desktop-wrapper {
+        display: none;
+    }
+    .header.scroll-up .header-logo-desktop-wrapper {
+        display: block;
+    }
+    .menu-separator {
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: rgb(220, 220, 220);
+    }
+    .header.homepage-header.scroll-up .menu-separator {
+        background-color: var(--color-larimar-text);
+    }
+    .header-logo-desktop {
+        width: 130px;
+        height: 130px;
+        margin-top: 5px;
+    }
+    .header.homepage-header .header-logo-desktop {
+        width: 200px;
+        height: 200px;
+        transition: all .1s;
+    }
+    .header.scroll-up .header-logo-desktop {
+        animation: appearsLater .8s;
+        width: 130px;
+        height: 130px;
+    }
+    .header {
+        flex-direction: row;
+        height: 135px;
+    }
+    .header.homepage-header.fade {
+        animation: homepageHeaderFade .3s forwards;
+    }
+    @keyframes homepageHeaderFade {
+        from {
+            background-color: var(--color-bg-dark);
+        } to {
+            background-color: transparent;
+        }
+    }
+    .header.fade {
+        animation: headerFade .3s forwards;
+    }
+    @keyframes headerFade {
+        from {
+            background-color: #FFF;
+        } to {
+            background-color: transparent;
+        }
+    }
+    .header-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        flex: 1 0;
+        padding-right: 30px;
+        padding-left: 15px;
+    }
+}

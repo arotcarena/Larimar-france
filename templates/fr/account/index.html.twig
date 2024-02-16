@@ -1,0 +1,33 @@
+{% extends "fr/base.html.twig" %}
+
+
+{% block title %}Mon compte{% endblock %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('account') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('account') }}
+{% endblock %}
+
+
+
+{% block body %}
+    {% set email = app.user.email ?? '' %}
+    {% set civility = app.user.civility ?? '' %}
+    {% set firstName = app.user.firstName ?? '' %}
+    {% set lastName = app.user.lastName ?? '' %}
+    <div 
+        id="account" 
+        data-email="{{ email | json_encode }}" 
+        data-civility="{{ civility | json_encode }}" 
+        data-firstname="{{ firstName | json_encode }}"
+        data-lastname="{{ lastName | json_encode }}"
+        >
+        <h1>Mon compte</h1>
+    </div>
+{% endblock %}

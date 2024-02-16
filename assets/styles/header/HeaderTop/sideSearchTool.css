@@ -1,0 +1,100 @@
+.side-search-tool {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.side-search-tool .q-group {
+    flex: none;
+    height: 40px;
+    margin: 10px 60px auto 15px;
+    position: relative;
+}
+.side-search-tool .q-input {
+    height: 100%;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 1px var(--color-lightgrey);
+    outline: none;
+    font-size: 1.1em;
+    padding-left: 30px;
+}
+.side-search-tool .q-icon {
+    position: absolute;
+    left: 0;
+    width: 1.4em;
+    height: 1.4em;
+    top: calc(50% - 0.7em);
+}
+
+.side-search-tool .search-link {
+    flex: none;
+    margin-top: auto;
+}
+
+.side-search-tool .product-suggest-list {
+    flex: 1 0;
+    overflow: auto;
+    margin: 0 15px 30px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    opacity: 1;
+    transition: opacity .3s;
+    position: relative;
+}
+.side-search-tool .product-suggest-list.loading {
+    opacity: .3;
+}
+.side-search-tool .product-suggest-list .loader {
+    position: absolute;
+    top: 8px;
+    left: calc(50% - 28px - .6em);
+    width: 1.2em;
+    height: 1.2em;
+}
+
+
+.side-search-tool .product-suggest-item {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+}
+.side-search-tool .product-suggest-item p, .product-suggest-item h2 {
+    margin: 0;
+}
+.side-search-tool .product-suggest-item .item-category {
+    margin-bottom: 4px;
+    color: var(--color-larimar-dark);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .7em;
+}
+
+.side-search-tool .item-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.side-search-tool .item-title {
+    margin-top: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.side-search-tool .item-category {
+    font-size: 0.9em;
+}
+.side-search-tool .item-price {
+    font-size: 1em;
+}
+
+
+.side-search-tool .item-img {
+    width: 90px;
+    height: 90px;
+}
+

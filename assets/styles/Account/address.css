@@ -1,0 +1,146 @@
+.account-address {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.account-address .loader {
+    margin: 30px auto;
+}
+.address-count {
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+.address-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: opacity .3s;
+}
+.address-item {
+    padding: 15px;
+    padding-right: 40px;
+    position: relative;
+    box-shadow: 0 0 1px var(--color-lightgrey);
+    background-color: rgb(250, 250, 250);
+    transition: all .3s;
+}
+.address-item .main-loader {
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    top: calc(50% - 0.6em);
+    left: calc(50% - 0.6em);
+}
+.address-item:last-of-type {
+    margin-bottom: 25px;
+}
+.address-item form {
+    margin-top: -20px;
+}
+
+.address-item-controls {
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.address-item .icon-button .i-close {
+    width: 1.8em;
+    height: 1.8em;
+}
+.address-item .icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.address-item .icon-button .edit-icon {
+    width: 1.5em;
+    height: 1.5em;
+    opacity: .8;
+}
+
+.address-item.active {
+    padding: 0 15px 15px;
+    border: solid 1px var(--color-black);
+    background-color: #FFF;
+}
+.address-item.danger {
+    background-color: rgba(231, 27, 61, 0.1);
+}
+.address-item.removing {
+    opacity: .3;
+}
+.address-item-sub-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-black);
+    font-size: .9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+    margin-right: -25px;
+    margin-top: 10px;
+}
+.address-item-sub-button {
+    height: 30px;
+    width: 60px;
+    margin: 0 2px;
+    border: solid 1px var(--color-black);
+}
+.address-item-sub-button.yes {
+    background-color: var(--color-black);
+    color: #FFF;
+}
+
+
+.add-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button {
+    border: solid 2px var(--color-lightgrey);
+    color: var(--color-lightgrey);
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+}
+
+.add-button .icon {
+    width: 2em;
+    height: 2em;
+}
+
+
+.asterix {
+    font-size: .8em;
+    color: var(--color-lightgrey);
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.form-group.is-invalid .asterix {
+    color: var(--color-danger);
+}
+.form-group {
+    position: relative;
+}
+
+
+
+
+@media only screen and (min-width: 450px) {
+    .address-item.active {
+        padding: 0 30px 15px;
+    }
+}

@@ -1,0 +1,9 @@
+#mondial-relay {
+    margin: 20px 0;
+}
+.MRW-Search {
+    display: none;
+}
+#mondial-relay.visible .MRW-Search {
+    display: block;
+}

@@ -1,0 +1,233 @@
+.checkout-form {
+    padding-top: 10px;
+    margin-bottom: 60px;
+}
+.checkout-form h1 {
+    margin-bottom: 45px;
+}
+
+.form-block {
+    max-width: 450px;
+    padding: 20px 15px;
+    margin: 30px auto;
+    background-color: #FFF;
+    box-shadow: 0 0 0 0.02px var(--color-black);
+}
+.form-block.editable {
+    padding-right: 50px;
+    position: relative;
+}
+.checkout .edit-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+.checkout .edit-button .icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+.checkout .checkout-form .address-item-button .icon {
+    width: 1.4em;
+    height: 1.4em;
+}
+.checkout .checkout-form .address-item-button .edit-icon {
+    opacity: .5;
+}
+.address-item-button.edit-button {
+    position: static;
+}
+.address-item-button .i-close {
+    width: 1em;
+    height: 1em;
+}
+
+
+.form-block-title {
+    margin-top: 0;
+    font-size: 1.3em;
+}
+
+.info-group {
+    margin: 25px 0;
+    padding-left: 4px;
+}
+.info-group p {
+    margin: 5px 0;
+}
+.info-group.no-mt {
+    margin-top: 0;
+}
+.info-group.no-mb {
+    margin-bottom: 0;
+}
+.info-group.no-ml {
+    padding-left: 0;
+}
+.info-group.small {
+    font-size: .75em;
+    color: var(--color-grey);
+}
+
+.form-group {
+    position: relative;
+}
+.asterix {
+    font-size: .8em;
+    color: var(--color-lightgrey);
+    position: absolute;
+    top: 10px;
+    left: 250px;
+}
+.form-group.is-invalid .asterix {
+    color: var(--color-danger);
+}
+
+.address-item {
+    margin: 15px 0;
+    position: relative;
+    padding: 15px;
+    padding-right: 40px;
+    border: dotted 1px var(--color-lightgrey);
+    border-radius: 15px;
+    color: var(--color-lightgrey);
+    cursor: pointer;
+    transition: all .3s;
+}
+.address-item .main-loader {
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    top: calc(50% - 0.6em);
+    left: calc(50% - 0.6em);
+}
+.address-item:last-of-type {
+    margin-bottom: 25px;
+}
+
+.address-item-controls {
+    position: absolute;
+    top: 10px;
+    bottom: 5px;
+    right: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+.address-item:hover {
+    box-shadow: 0 0 3px var(--color-lightgrey);
+}
+.address-item.danger {
+    background-color: rgba(231, 27, 61, 0.1);
+}
+.address-item.danger:hover {
+    box-shadow: none;
+    cursor: default;
+}
+.address-item.removing {
+    opacity: .3;
+}
+.address-item-sub-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-black);
+    font-size: .9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+    margin-right: -25px;
+    margin-top: 10px;
+}
+.address-item-sub-button {
+    height: 30px;
+    width: 60px;
+    margin: 0 2px;
+    border: solid 1px var(--color-black);
+}
+.address-item-sub-button.yes {
+    background-color: var(--color-black);
+    color: #FFF;
+}
+
+
+.checkout-form .add-button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-form .add-button {
+    border: solid 2px var(--color-lightgrey);
+    color: var(--color-lightgrey);
+    height: 35px;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1000px;
+}
+
+.checkout-form .add-button .icon {
+    width: 2em;
+    height: 2em;
+}
+
+
+.form-button.pay-button {
+    margin-top: 30px;
+    height: auto;
+    min-height: 40px;
+    line-height: 1.5;
+    padding: 15px 20px;
+}
+.form-button.pay-button #button-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+} 
+.form-button.pay-button .loader {
+    flex: none;
+}
+
+
+.form-button.pay-button.disabled {
+    opacity: 1;
+    background-color: transparent;
+    color: var(--color-black);
+}
+.form-button.pay-button.disabled .loader {
+    opacity: .3;
+}
+
+
+.checkout .form-info.uppercase {
+    color: var(--color-larimar-dark);
+    line-height: 1.6;
+    margin-bottom: -20px;
+    font-weight: 600;
+}
+.checkout .form-block.editable .form-info.uppercase {
+    margin-bottom: 0;
+}
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.info-row span {
+    flex: none;
+}
+
+@media only screen and (min-width: 450px) {
+    .form-block {
+        padding: 20px 25px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .form-block {
+        padding: 20px 30px;
+    }
+}

@@ -1,0 +1,8 @@
+.admin-footer {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    border-top: solid 1px rgb(230, 230, 230);
+}

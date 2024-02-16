@@ -1,0 +1,70 @@
+{% extends 'fr/base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('loginForm') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent()}}
+    {{ encore_entry_link_tags('loginForm') }}
+{% endblock %}
+
+
+{% block body %}
+    <div class="security">
+        
+        <h1>Connexion</h1>
+            
+        {% if errorMessage is not null %}
+            <div class="form-main-error">{{ errorMessage }}</div>
+        {% endif %}
+        
+        <div id="login-form" data-lastusername="{{ last_username | json_encode }}" data-csrftoken="{{ csrf_token('authenticate') }}">
+
+            <form method="post">
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <label class="form-label" for="inputEmail">Adresse email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" maxlength="200" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <label class="form-label" for="inputPassword">Mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" maxlength="200" required>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input class="form-checkbox" id="checkboxRememberMe" type="checkbox" name="_remember_me">
+                    <label for="checkboxRememberMe" class="form-label">
+                        <div class="custom-checkbox" role="checkbox" aria-labelledby="checkbox-label">
+                            <svg class="icon check-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                                <path fill="currentColor" d="M378-246 154-470l43-43 181 181 384-384 43 43-427 427Z"/>
+                            </svg>
+                        </div>
+                        <span id="checkbox-label">Se souvenir de moi</span>
+                    </label>
+                </div>
+            
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="link-group">
+                    <a class="form-link" href={{ path('fr_security_askResetPassword') }}>Mot de passe oublié ?</a>
+                </div>
+                <div class="link-group">
+                    <a class="form-link" href={{ path('fr_security_register') }}>Pas encore inscrit ? Cliquez ici pour créer un compte</a>
+                </div>
+
+                <div class="submit-group">
+                    <button class="form-button no-react security-button" type="submit">
+                        <span>Se connecter</span>
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

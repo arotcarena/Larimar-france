@@ -1,0 +1,55 @@
+
+
+.admin-header-logo {
+    width: 55px;
+    height: 55px;
+    margin-top: 5px;;
+}
+
+
+
+.admin-header {
+    height: 60px;
+    box-shadow: 0 0 1px var(--color-admin-lightgrey);
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFF;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.admin-header-top {
+    height: 100%;
+    position: relative;
+}
+.admin-header-top .admin-home-link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color-admin);
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+.admin-sub-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.admin-sub-menu-control {
+    transition: .3s;
+    font-size: 1.2em;
+}
+.admin-sub-menu-control:hover, .admin-sub-menu-control.active {
+    color: var(--color-admin);
+    text-decoration: underline;
+}
+

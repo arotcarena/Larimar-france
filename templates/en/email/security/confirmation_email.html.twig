@@ -1,0 +1,19 @@
+{% extends "en/email/base.html.twig" %}
+
+{% block title %}Verify your email address{% endblock %}
+
+{% block body %}
+    <div style="padding: 10px 15px;">
+        <img src="http://localhost:8000/img/logo.png" style="width: 140px; height: 140px;" alt="Larimar logo">
+         
+        <h1 style="font-size: 1.4em;">Welcome to Larimar France</h1>
+
+        <p style="margin: 40px 0;">In order to verify your email address and activate your account, please click on the link below (valid 48h)</p>
+
+        <p style="margin: 40px 0;">
+            <a style="color: #009095; text-transform: uppercase; font-weight: 600; font-size: .9em;" href={{ link }}>Activate my account</a>
+        </p>
+
+        <p>See you soon !</p>
+    </div>
+{% endblock %}

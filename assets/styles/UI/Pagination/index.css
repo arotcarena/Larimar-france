@@ -1,0 +1,89 @@
+.pagination-controls-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 60px auto;
+}
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity .3s;
+}
+.pagination-controls.loading {
+    opacity: .3;
+}
+.pagination-link {
+    flex: none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: solid 1px var(--color-grey); */
+    color: var(--color-black);
+    transition: all .3s;
+    /* font-size: 1em; */
+    font-size: 1.2em;
+}
+.pagination-link .icon {
+    width: 1.3em;
+    height: 1.3em;
+    opacity: .8;
+}
+.pagination-link.active {
+    background-color: var(--color-larimar);
+    border: solid 1px var(--color-larimar);
+    color: #FFF;
+}
+.pagination-link.active:hover {
+    background-color: var(--color-larimar);
+    border: solid 1px var(--color-larimar);
+}
+.pagination-link:hover {
+    background-color: rgb(240, 240, 240);
+    /* border: solid 1px var(--color-black); */
+    /* color: #FFF; */
+}
+.pagination-link.disabled {
+    color: rgb(210, 210, 210);
+    /* border: solid 1px rgb(210, 210, 210); */
+    cursor: default;
+}
+.pagination-link.disabled:hover {
+    color: rgb(210, 210, 210);
+    background-color: transparent;
+}
+.pagination-link.pagination-number {
+    display: none;
+}
+.pagination-link.pagination-number.active {
+    display: flex;
+}
+
+.pagination-controls.loading .pagination-link {
+    cursor: default;
+}
+.pagination-controls.loading .pagination-link:hover {
+    background-color: transparent;
+    color: var(--color-black);
+    /* border: solid 1px var(--color-grey); */
+}
+.pagination-controls.loading .pagination-link.active:hover {
+    background-color: var(--color-larimar);
+    color: #FFF;
+    /* border: solid 1px var(--color-larimar); */
+}
+
+@media only screen and (min-width: 450px) {
+    .pagination-link.pagination-number.near {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    .pagination-link.pagination-number {
+        display: flex;
+    }
+}

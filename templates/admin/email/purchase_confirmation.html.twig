@@ -1,0 +1,87 @@
+{% extends "admin/email/base.html.twig" %}
+
+{% block title %}Commande reçue{% endblock %}
+
+{% block body %}
+
+    <h1>Vous avez reçu une commande</h1>
+
+
+    <div>
+        <h3>Réf.</h3>
+        <p>{{purchase.ref}}</p>
+    </div>
+    <div>
+        <h3>Adresse email</h3>
+        <p>{{purchase.user.email}}</p>
+    </div>
+    <div>
+        <h3>Mode de livraison</h3>
+        <p>{{ purchase.shippingInfo.name }}
+    </div>
+    <div>
+        {% if isAtHomeDelivery %}
+            <h3>Livraison à domicile</h3>
+            {% set address = purchase.deliveryDetail %}
+            <p>
+                {{ address.civility }} {{ address.firstName }} {{ address.lastName }}
+                <br>{{ address.lineOne }}
+                {% if address.lineTwo is not null %}
+                    {% if address.lineTwo != '' %}<br>{{ address.lineTwo }}{% endif %} 
+                {% endif %}
+                <br>{{ address.postcode }} {{ address.city }}
+                <br>{{ address.country }} ({{ address.iso }})
+            </p>
+        {% else %}
+            <h3>Livraison en point relais / locker</h3>
+            <p>
+                {{ purchase.shippingInfo.relay.name }}
+                <br>{{ purchase.shippingInfo.relay.lineOne }}
+                {% if purchase.shippingInfo.relay.lineTwo is not null %}<br>{{ purchase.shippingInfo.relay.lineTwo }}{% endif %} 
+                <br>{{ purchase.shippingInfo.relay.postcode }} {{  purchase.shippingInfo.relay.city }}
+                <br><br>Identifiant: <strong>{{ purchase.shippingInfo.relay.id }}</strong>
+            </p>
+        {% endif %}
+            
+
+        
+    </div>
+    <div>
+        <h3>Adresse de facturation</h3>
+        {% set address = purchase.invoiceDetail %}
+        <p>
+            {{ address.lineOne }}
+            {% if address.lineTwo is not null %}
+                {% if address.lineTwo != '' %}<br>{{ address.lineTwo }}{% endif %} 
+            {% endif %}
+            <br>{{ address.postcode }} {{ address.city }}
+            <br>{{ address.country }} ({{ address.iso }})
+        </p>
+    </div>
+    <div>
+        <h3>Détail de la commande</h3>
+        {% for purchaseLine in purchase.purchaseLines %}
+            <div>{{ purchaseLine.quantity }} x {{ purchaseLine.product.designation }} (réf. publique : {{ purchaseLine.product.publicRef }}) = {{ purchaseLine.totalPrice | price_format }}</div>
+        {% endfor %}
+        <br>
+        <div>Total articles : {{ purchase.totalPrice | price_format }}</div>
+        <div>Livraison : {{ purchase.shippingInfo.price | price_format }}</div>
+        <div>Total : {{ (purchase.shippingInfo.price + purchase.totalPrice) | price_format}}</div>
+    </div>
+    <div>
+        <h3>Date de la commande</h3>
+        <div>{{ purchase.createdAt.format('d/m/Y H:h') }}</div>
+    </div>
+    <div>
+        <h3>Statut</h3>
+        <div>{{ purchase.statusLabel }}</div>
+    </div>
+    <br>
+    <br>
+    <a href={{ url('admin_purchase_index') }}>Cliquez ici pour gérer les commandes</a>
+
+    <br>
+    <br>
+    <br>
+
+{% endblock %}

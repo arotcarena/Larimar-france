@@ -1,0 +1,53 @@
+<div id="{{ id }}" class="deliveryMethod-group">
+    <h2 class="deliveryMethod-title">{{ title }}</h2>
+
+    {% for area, weightRanges in deliveryMethods %}
+        <div class="deliveryMethod-subgroup">
+            <h3 class="deliveryMethod-subtitle">{{ area }}</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Poids jusqu'à</th>
+                        <th>Zone destination</th>
+                        <th>Délai de livraison</th>
+                        <th>Prix</th>
+                        <th>Dernière mise à jour</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for deliveryMethod in weightRanges %}
+                        <tr>
+                            <td class="weight">
+                                {% if deliveryMethod.maxWeight >= 1000 %}
+                                    {{ deliveryMethod.maxWeight / 1000 }} kg
+                                {% else %}
+                                    {{ deliveryMethod.maxWeight }} g
+                                {% endif %}
+                            </td>
+                            <td class="destinationArea">{{ deliveryMethod.destinationAreaLabel }}</td>
+                            <td class="deliveryTime">
+                                {% if deliveryMethod.deliveryTime is not null %}
+                                    {{deliveryMethod.deliveryTime}} jour{% if deliveryMethod.deliveryTime > 1 %}s{% endif %} ouvré{% if deliveryMethod.deliveryTime > 1 %}s{% endif %}
+                                {% else %}
+                                    Non renseigné
+                                {% endif %}
+                            </td>
+                            <td class="price">{{ deliveryMethod.price | price_format }}</td>
+                            <td class="updatedAt">{{ deliveryMethod.updatedAt.format('d/m/Y H:i') }}</td>
+                            <td>
+                                <div class="admin-table-controls">
+                                    <a class="admin-table-button success" href="{{ path('admin_deliveryMethod_update', {id: deliveryMethod.id}) }}" title='Modifier'>
+                                        <svg class="icon">
+                                            <use xlink:href="/svg/sprite.svg#edit"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,87 @@
+{% extends "fr/email/base.html.twig" %}
+
+{% block title %}Commande validée{% endblock %}
+
+{% block body %}
+    <div style="padding: 10px 15px; margin: 0;">
+        <img src="http://localhost:8000/img/logo.png" style="width: 140px; height: 140px;" alt="logo Larimar">
+        
+        <h1 style="font-size: 1.4em;">Merci pour votre commande</h1>
+
+        <p style="margin: 40px 0; line-height: 1.4;">Nous avons bien reçu votre paiement d'un montant de {{ (purchase.totalPrice + purchase.shippingInfo.price) | price_format }} pour la commande n°{{ purchase.ref }}.</p>
+        
+        <div style="padding: 15px; background-color: rgb(250, 250, 250); ; max-width: 500px;">
+            <h2 style="font-size: 1.4em; margin-top: 0;">Récapitulatif de la commande</h2>
+             <div>
+                <h3>Détail de la commande</h3>
+                {% for purchaseLine in purchase.purchaseLines %}
+                    <div>{{ purchaseLine.quantity }} x {{ purchaseLine.product.designation }} = {{ purchaseLine.totalPrice | price_format }}</div>
+                {% endfor %}
+                <br>
+                <div>Total articles : {{ purchase.totalPrice | price_format }}</div>
+                <div>Livraison : {{ purchase.shippingInfo.price | price_format }}</div>
+                <div>Total : {{ (purchase.shippingInfo.price + purchase.totalPrice) | price_format}}</div>
+            </div>
+            <div>
+                <h3>Méthode de livraison</h3>
+                <p>{{ purchase.shippingInfo.name }}</p>
+            </div>
+            <div>
+                {% if isAtHomeDelivery %}
+                    <h3>Adresse de livraison</h3>
+                    {% set address = purchase.deliveryDetail %}
+                    <p>
+                        <span style="text-transform: capitalize;">{{ address.civility }} {{ address.firstName }} {{ address.lastName }}</span>
+                        <br>{{ address.lineOne }}
+                        {% if address.lineTwo is not null %}
+                            {% if address.lineTwo != '' %}<br>{{ address.lineTwo }}{% endif %} 
+                        {% endif %}
+                        <br>{{ address.postcode }} {{ address.city }}
+                        <br>{{ address.country }}
+                    </p>
+                {% else %}
+                    <h3>Point relais / locker</h3>
+                    <p>
+                        {{ purchase.shippingInfo.relay.name }}
+                        <br>{{ purchase.shippingInfo.relay.lineOne }}
+                        {% if purchase.shippingInfo.relay.lineTwo is not null %}<br>{{ purchase.shippingInfo.relay.lineTwo }}{% endif %} 
+                        <br>{{ purchase.shippingInfo.relay.postcode }} {{  purchase.shippingInfo.relay.city }}
+                        <br>{{ purchase.deliveryDetail.country }}
+                    </p>
+                {% endif %}
+                    
+                
+            </div>
+            <div>
+                <h3>Adresse de facturation</h3>
+                {% set address = purchase.invoiceDetail %}
+                <p>
+                    <span style="text-transform: capitalize;">{{ address.civility }} {{ address.firstName }} {{ address.lastName }}</span>
+                    <br>{{ address.lineOne }}
+                    {% if address.lineTwo is not null %}
+                        {% if address.lineTwo != '' %}<br>{{ address.lineTwo }}{% endif %} 
+                    {% endif %}
+                    <br>{{ address.postcode }} {{ address.city }}
+                    <br>{{ address.country }}
+                </p>
+            </div>
+            <div>
+                <h3>Date de la commande</h3>
+                <div>{{ purchase.createdAt.format('d/m/Y H:h') }}</div>
+            </div>
+            <div>
+                <h3>Statut</h3>
+                <div>{{ purchase.statusLabel }}</div>
+            </div>
+        </div>
+
+        <p style="margin: 40px 0 20px;">Suivez toutes vos commandes depuis votre compte utilisateur :</p>
+
+        <p>
+            <a style="color: #009095; text-transform: uppercase; font-weight: 600; font-size: .9em;" href="{{ url('fr_account_purchase') }}">Suivre mes commandes</a>
+        </p>
+    </div>
+
+
+
+{% endblock %}

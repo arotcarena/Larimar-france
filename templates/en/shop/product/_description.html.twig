@@ -1,0 +1,32 @@
+{% if product.countEnDescriptionWords > 20 %}
+    <div class="description-wrapper" data-controller="togglecontent">
+        <div class="short-description-wrapper content-a">
+            {% if product.enDescription %}
+                <p class="short-description">{{ product.enDescription | excerpt(20) }}</p>
+            {% endif %}
+            <button class="read-button more content-b-button">
+                <span>Lire plus</span>
+                <svg class="icon i-expand-more" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
+                    <path fill="currentColor" stroke="currentColor" d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z" />
+                </svg>
+            </button>
+        </div>
+        <div class="long-description-wrapper content-b invisible">
+            {% if product.enDescription %}
+                <p class="long-description">{{ product.enDescription }}</p>
+            {% endif %}
+            <button class="read-button less content-a-button">
+                <span>Lire moins</span>
+                <svg class="icon i-expand-more expanded" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
+                    <path fill="currentColor" stroke="currentColor" d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+{% else %}
+    <div class="description-wrapper">
+        {% if product.enDescription %}
+            <p class="short-description">{{ product.enDescription }}</p> 
+        {% endif %}
+    </div>
+{% endif %}

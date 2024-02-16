@@ -1,0 +1,25 @@
+{% extends "fr/base.html.twig" %}
+
+{% block viewport %}
+{% endblock %}
+
+{% block title %}Administration{% endblock %}
+
+{% block javascript %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block style %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+
+{% block header %}
+    {% include "admin/layouts/_admin_header.html.twig" %}
+{% endblock %}
+
+{% block pageClass %}admin-page{% endblock %}
+
+{% block footer %}
+    {% include "admin/layouts/_admin_footer.html.twig" %}
+{% endblock %}

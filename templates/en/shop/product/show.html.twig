@@ -1,0 +1,84 @@
+{% extends "en/base.html.twig" %}
+
+{% block title %}{{ product.enDesignation }}{% endblock %}
+
+{% block metaTitle %}
+    <meta property="og:title" content="{{ product.enDesignation }}">
+{% endblock %}
+
+{% block metaDescription %}
+    {% if product.enMetaDescription %}
+        <meta name="description" content="{{ product.enMetaDescription }}">
+        <meta property="og:description" content="{{ product.enMetaDescription }}">
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('enProductShow') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('enProductShow') }}
+{% endblock %}
+
+{% block body %}
+    {% include "en/shop/product/_show_breadcrumb.html.twig" %}
+
+    <div class="product-show">
+        <div class="product-show-wrapper">
+            <div class="product-left-col">
+                <div id="product-img-carousel">
+                    {# ci-dessous data pour react #}
+                    {% for i in [1, 2, 3] %}
+                        {% set picture = product | product_picture_position_resolver(i) %}
+                        {% if picture is not null %}
+                            <div id="picture{{i}}" data-src="{{ picture_path_resolver(picture, 'show_first') | json_encode }}" data-alt="{{ picture_alt_resolver(picture) | json_encode }}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="product-right-col">
+                <h1 class="designation">{{ product.enDesignation }}</h1>
+
+                {% include "en/shop/product/_description.html.twig" %}
+
+                {% if product.material %}
+                    <p class="material">{{ product.material | translate_material_toEn }}</p>
+                {% endif %}
+
+                <p class="price">{{ product.price | price_format }}</p>
+
+                {% if product.fingerSize %}
+                    {% include "en/shop/product/_finger_size_choice.html.twig" %}
+                {% endif %}
+                
+                
+                {% if product.totalDimension or product.cabochonDimension or product.weight %}
+                    {% include "en/shop/product/_show_complement.html.twig" %}
+                {% endif %}
+                
+
+                <button 
+                    class="button form-button product-show-add-button" 
+                    data-controller="enproductshowaddbutton"
+                    data-productid={{ product.id }} 
+                    data-productprice={{ product.price }}
+                    data-quantitytoadd="1"
+                    >
+                    <span>Add to cart</span>
+                    <img class="loader invisible" src="/img/icons/loader.png" alt="loading symbol" />
+                </button>
+            </div>
+        </div>
+        <div id="show-suggested-products" data-productid="{{ product.id }}" class="suggestedProducts-wrapper">
+            
+        </div>
+    </div>
+{% endblock %}
+

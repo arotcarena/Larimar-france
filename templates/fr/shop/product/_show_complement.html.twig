@@ -1,0 +1,34 @@
+<div class="complement-wrapper" data-controller="toggleshow">
+    <button class="complement-title toggle-opener">
+        <span>Informations supplémentaires</span>
+        <svg class="icon i-expand-more" xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960">
+            <path fill="currentColor" stroke="currentColor" d="M480 711 240 471l43-43 197 198 197-197 43 43-240 239Z" />
+        </svg>
+    </button>
+    <div class="toggle invisible">
+        <table class="complement-table">
+            <tbody>
+                {% if product.totalDimension %}
+                    <tr>
+                        <td>Dimension totale</td>
+                        <td>{{ product.totalDimension }} mm</td>
+                    </tr>
+                {% endif %}
+                
+                {% if product.cabochonDimension %}
+                    <tr>
+                        <td>Dimension du cabochon</td>
+                        <td>{{ product.cabochonDimension }} mm</td>
+                    </tr>
+                {% endif %}
+                
+                {% if product.weight %}
+                    <tr>
+                        <td>Poids</td>
+                        <td>{{ product.weight }} g</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>

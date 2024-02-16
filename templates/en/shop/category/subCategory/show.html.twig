@@ -1,0 +1,35 @@
+{% extends "en/base.html.twig" %}
+
+{% block title %}{{ subCategory.name }}{% endblock %}
+
+{% block metaTitle %}
+    <meta property="og:title" content="{{ subCategory.name }}">
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('enProductIndex') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('enProductIndex') }}
+{% endblock %}
+
+
+
+
+{% block body %}
+    <div class="breadcrumb">
+        <a href={{ path('en_home') }} class="breadcrumb-home-link">Home</a>
+        >
+        <a href={{ path('en_category_show', {slug: category.enSlug}) }} class="breadcrumb-link">{{ category.enName }}</a>
+        >
+        <span class="breadcrumb-item">{{ subCategory.enName }}</span>
+    </div>
+
+    <h1 class="product-index-static-title">{{ category.enName }} / {{ subCategory.enName }}</h1>
+
+    <div id="product-index" data-categoryid="{{ category.id }}" data-subcategoryid="{{ subCategory.id }}">
+    </div>
+{% endblock %}

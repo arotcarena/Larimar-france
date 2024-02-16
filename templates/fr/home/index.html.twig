@@ -1,0 +1,54 @@
+{% extends "fr/base.html.twig" %}
+
+
+{% set headerClass = 'header homepage-header' %}
+{% block pageClass %}homepage{% endblock %}
+{% set footerClass = 'footer homepage-footer' %}
+
+
+{% block body %}
+    <div class="hero" data-controller="hero">
+        <div data-id="1" class="hero-bg hero-bg-1 current"></div>
+        <div data-id="2" class="hero-bg hero-bg-2"></div>
+        <div data-id="3" class="hero-bg hero-bg-3"></div>
+        <div class="hero-text">
+            <h1 class="hero-text-title">Larimar France</h1>
+            <p class="hero-text-subtitle">Par Marie-Laure Schira</p>
+        </div>
+    </div>
+   {% include "fr/home/_category_cta.html.twig" %}
+    <div class="home-text">
+
+        
+        <div class="home-text-intro">
+            <p class="home-text-big">Vous recherchez un bijou fantaisie unique ?</p>
+            <p class="home-text-big">Une bague ou un pendentif en larimar authentique ?</p>
+        </div>
+
+        <img class="home-text-img" src="/img/a_propos.jpg" alt="Photo portrait de Marie-Laure Schira">
+        <p>
+            Créatrice de bijoux en argent massif pour hommes, femmes et enfants, je suis la spécialiste du larimar en France depuis plus de 24 ans.
+        </p>
+        <p>
+            Je suis tombée amoureuse de cette pierre confidentielle en 1985 lors d'un salon à Sainte-Marie aux Mines (Vosges). Après plusieurs voyages à travers le monde et en République dominicaine (seul gisement connu pour cette pectolite bleue), j'ai commencé à importer le larimar brut en 1999.
+        </p>
+        <p>
+            Je le propose sous différentes formes et tailles et je connais parfaitement ses particularités, ses qualités et ses défauts (et oui, il en a si vous ne prenez pas assez soin de lui).
+        </p>
+        
+        <p>Mon amour pour cette pierre est incommensurable, j'y consacre une partie de ma vie.</p>
+        <p>C'est une immense fierté pour moi de voir du larimar sur vos doigts, à vos cous, sur vos poignets et vos oreilles.</p>
+        <p>Avez-vous vu ? Mon prénom (Marie-Laure) est en partie un anagramme de Larimar. Si ça ce n'est pas un signe ?</p>
+        <p>Merci infiniment d'aimer cette pierre.</p>
+        
+        <div class="home-text-signature">
+            <p>À très bientôt</p>
+
+            <p>Marie-Laure</p>
+        </div>
+
+        <div class="home-text-link-wrapper">
+            <a class="home-text-link" href="{{ path('fr_static_aPropos') }}">En savoir plus</a>
+        </div>
+    </div>
+{% endblock %}

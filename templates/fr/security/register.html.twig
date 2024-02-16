@@ -1,0 +1,46 @@
+{% extends 'fr/base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('registerForm') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent()}}
+    {{ encore_entry_link_tags('registerForm') }}
+{% endblock %}
+
+
+{% block body %}
+    <div class="security">
+
+        <h1>Inscription</h1>
+
+        {% if registrationForm.vars.valid == false %}
+            <div class="form-main-error">Le formulaire comporte des erreurs</div>
+        {% endif %}
+
+        <div id="register-form" data-csrftoken="{{ csrf_token('register') }}">
+            {{ form_start(registrationForm) }}
+
+                {{ include('form/_form_row.html.twig', {name: 'email', label: 'Adresse email', field: registrationForm.email}) }}
+                
+                {{ include('form/_form_row.html.twig', {name: 'plainPassword', label: 'Mot de passe', field: registrationForm.plainPassword}) }}
+                
+                {{ include('form/_form_row.html.twig', {name: 'passwordConfirm', label: 'Confirmez le mot de passe', field: registrationForm.passwordConfirm}) }}
+                
+                {{ include('form/_form_checkbox_row.html.twig', {id: 'user_registration_agreeTerms', name: 'agreeTerms', label: 'Accepter les conditions générales d\'utilisation', field: registrationForm.agreeTerms}) }}
+
+                <div class="submit-group">
+                    <button class="form-button no-react security-button" type="submit">
+                        <img class="loader form-button-loader" src="/img/icons/loader.png" alt="symbole chargement">
+                        <span>Créer un compte</span>
+                    </button>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+
+    </div>
+{% endblock %}

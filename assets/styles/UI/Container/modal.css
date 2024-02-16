@@ -1,0 +1,25 @@
+.modal-container {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.modal-closer {    
+    position: absolute;
+    z-index: 4;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.modal-closer .i-close {
+    width: 25px;
+    height: 25px;
+}
+
+.modal {
+    overflow: auto;
+}

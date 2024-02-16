@@ -1,0 +1,49 @@
+{% extends "admin/admin_base.html.twig" %}
+
+{% block body %}
+
+    <div class="breadcrumb">
+        <a href={{ path('admin_home') }} class="breadcrumb-home-link">Administration</a>
+        >
+        <span class="breadcrumb-item">Méthodes de livraison</span>
+    </div>
+
+
+  <div class="admin-container admin-deliveryMethod-container" data-controller="admindeliverymethodindex">
+
+        <nav class="admin-sub-menu">
+            <button type="button" class="admin-sub-menu-control active" data-key="trackedLetter">Lettre suivie</button>
+            <button type="button" class="admin-sub-menu-control" data-key="colissimo">Colissimo</button>
+            <button type="button" class="admin-sub-menu-control" data-key="colissimoWithSignature">Colissimo contre signature</button>
+            <button type="button" class="admin-sub-menu-control" data-key="mondialRelay">Mondial Relay</button>
+        </nav>
+
+        {{ include('admin/customer/deliveryMethod/_index_table.html.twig', {
+            id: 'trackedLetter',
+            title: 'Lettre suivie',
+            deliveryMethods: trackedLetter
+        }) }}
+
+        {{ include('admin/customer/deliveryMethod/_index_table.html.twig', {
+            id: 'colissimo',
+            title: 'Colissimo',
+            deliveryMethods: colissimo
+        }) }}
+
+        {{ include('admin/customer/deliveryMethod/_index_table.html.twig', {
+            id: 'colissimoWithSignature',
+            title: 'Colissimo contre signature',
+            deliveryMethods: colissimoWithSignature
+        }) }}
+
+        {{ include('admin/customer/deliveryMethod/_index_table.html.twig', {
+            id: 'mondialRelay',
+            title: 'Mondial Relay',
+            deliveryMethods: mondialRelay
+        }) }}
+
+        
+</div>
+
+{% endblock %}
+        

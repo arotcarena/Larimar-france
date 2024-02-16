@@ -1,0 +1,140 @@
+.right-search-link {
+    display: none;
+}
+
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 100%;
+    padding: 0 15px;
+}
+
+.header-top .button .icon {
+    width: 35px;
+    height: 35px;
+}
+.header-top .button .i-account {
+    width: 29px;
+    height: 29px;
+}
+.header-top .button .i-logged-account {
+    width: 30px;
+    height: 30px;
+}
+.header-top .button .i-cart {
+    width: 40px;
+    height: 40px;
+}
+.header-top-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-top .button {
+    margin: 0 5px;
+}
+.header.homepage-header.scroll, .header.homepage-header.scroll .header-top .button, .header.homepage-header.scroll-up, .header.homepage-header.scroll-up .header-top .button {
+    color: var(--color-larimar-text);
+}
+
+.header-logo {
+    position: absolute;
+    left: calc(50% - 67.5px);
+    top: 0;
+    width: 135px;
+    height: 135px;
+    margin-top: 5px;
+}
+.header.homepage-header .header-logo {
+    left: calc(50% - 80px);
+    width: 160px;
+    height: 160px;
+    transition: all .1s;
+}
+
+.header.scroll .header-logo {
+    width: 65px;
+    height: 65px;
+    left: calc(50% - 32.5px);
+    animation: appearsLater .8s;
+}
+.header.scroll-up .header-logo {
+    width: 65px;
+    height: 65px;
+    left: calc(50% - 32.5px);
+}
+
+
+
+.side-menu-footer-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        border-top: solid 1px var(--color-black);
+        width: 100%;
+        font-weight: 600;
+        transition: all .3s;
+        font-size: 0.9em;
+        text-transform: uppercase;
+}
+.side-menu-footer-button:hover {
+    background-color: var(--color-larimar-dark);
+    border-top: solid 1px var(--color-larimar-dark);
+    color: #FFF;
+}
+.side-menu-footer-button.disabled {
+    background-color: transparent;
+    border-top: solid 1px var(--color-black);
+    opacity: .3;
+    pointer-events: none;
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .side-menu-container.left, .mobile-menu-opener, .left-search-link, .header-top .header-logo {
+        display: none;
+    }
+    .right-search-link {
+        display: inline;
+    }
+    .header-top {
+        height: auto;
+        margin-top: 15px;
+        position: relative;
+    }
+    .header-top-right {
+        flex: 1 0;
+        justify-content: flex-end;
+        gap: 15px;
+    }
+    .header.scroll .header-top {
+        height: 70px;
+        margin-top: 0;
+    }
+    .header.scroll .header-logo {
+        display: block;
+        left: 0;
+    }
+    .header-top .button .icon {
+        width: 30px;
+        height: 30px;
+    }
+    .header-top .button .i-account {
+        width: 25px;
+        height: 25px;
+    }
+    .header-top .button .i-account.i-logged-account {
+        width: 30px;
+        height: 30px;
+    }
+    .header-top .button .i-cart {
+        width: 35px;
+        height: 35px;
+    }
+    .header-top .button {
+        margin: 0;
+    }
+}

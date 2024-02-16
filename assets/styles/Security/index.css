@@ -1,0 +1,30 @@
+.security {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+}
+
+.security h1 {
+    margin-top: 90px;
+    margin-bottom: 45px;
+}
+
+
+.security .form-main-error {
+    margin-top: -30px;
+    margin-bottom: 0;
+    margin-left: 4px;
+    color: var(--color-danger);
+    font-size: 1.1em;
+}
+
+@media only screen and (min-width: 1000px) {
+    .security h1 {
+        margin-top: 0;
+        margin-bottom: 50px;
+    }
+    .security .alert.alert-danger {
+        margin-top: -60px;
+    }
+}

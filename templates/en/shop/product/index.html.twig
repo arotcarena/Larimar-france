@@ -1,0 +1,24 @@
+{% extends "en/base.html.twig" %}
+
+
+{% block javascript %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('enProductIndex') }}
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('enProductIndex') }}
+{% endblock %}
+
+
+{% block body %}
+    <div class="breadcrumb">
+        <a href={{ path('en_home') }} class="breadcrumb-home-link">Home</a>
+        >
+        <span class="breadcrumb-item">Search</span>
+    </div>
+    <h1 class="product-index-static-title">Search</h1>
+    <div id="product-index">
+    </div>
+{% endblock %}

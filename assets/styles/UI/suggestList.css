@@ -1,0 +1,25 @@
+.suggest-list {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    background-color: #FFF;
+    box-shadow: 0 0 2px var(--color-lightgrey);
+    border-radius: 4px;
+}
+.suggest-item {
+    padding: 8.5px;
+    border-radius: 4px;
+    transition: all .3s;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    color: rgb(80, 80, 80);
+    font-size: .8em;
+}
+.suggest-item.selected, .suggest-item:hover {
+    background-color: rgb(245, 245, 245);
+}
